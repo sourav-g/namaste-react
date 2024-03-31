@@ -1,0 +1,2 @@
+1. Even angular can be injected only in part of our page using id ?
+ -- Possible, but since its a full-fedged framework, comes with a lot of baggage
