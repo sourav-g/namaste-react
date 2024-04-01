@@ -1,2 +1,7 @@
 1. Even angular can be injected only in part of our page using id ?
  -- Possible, but since its a full-fedged framework, comes with a lot of baggage
+2. Create a package and upload to npm and download and use
+3. ^ vs ~ in package.json
+4. Transitive dependency
+5. npm - install a pkg ; npx - executing a pkg
+6. what is .map files for css and js?

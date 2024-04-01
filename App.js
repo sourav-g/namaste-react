@@ -6,6 +6,8 @@
         </div>
     </div>
 */
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 const parent = React.createElement(
   "div",
@@ -18,7 +20,7 @@ const parent = React.createElement(
         dataman: "true",
         key: 1,
       },
-      "Hello World from JS!"
+      "Hello World from JS ! "
     ),
     React.createElement(
       "h2",
@@ -27,7 +29,16 @@ const parent = React.createElement(
         dataman: "true",
         key: 2,
       },
-      "I am a heading tag!"
+      "Get ready to launch React ! 🚀"
+    ),
+    React.createElement(
+      "p",
+      {
+        id: "para",
+        dataman: "true",
+        key: 3,
+      },
+      "☆*: .｡. o(≧▽≦)o .｡.:*☆"
     ),
   ])
 );
