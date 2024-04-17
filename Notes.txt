@@ -5,3 +5,49 @@
 4. Transitive dependency
 5. npm - install a pkg ; npx - executing a pkg
 6. what is .map files for css and js?
+7. module patterns in JS - CommonJS,AMD
+8. JSX is separate - not part of react
+9. what is XML ?
+10. Can we use JSX with Angular and others
+11. Symbol in react element
+12. JSX transpiled before it reaches the JS engine - done by parser-babel (as part of parcel ?),
+    So without parcel, JSX will not work ???
+
+13. JSX =babel==> React.createElement => React Element (JS Object) => HTML Element (render)
+14. does babel read/parse a JS file line-by-line in sequence
+15. does babel always converts JSX to React element only ??
+16. any JS inside JSX - {...} . even imports ??
+17. Can we create infinte loop in hTMl ( includes??)
+18. JSX {..} sanitizes before executing, so Cross Site scripting attack is not possible. It uses escapes ???
+19. let and const are not hoisted ???
+
+-----------------------------------------
+
+1. Should we start writing React components top->bottom or ground -> up ?
+2. Passing a prop to a function is like passing an argument to a function. 
+3. Config-driven UI
+4.* When display grid vs flex ? 
+5.* creating shapes using svg ? advantages of svg [https://deliciousbrains.com/svg-advantages-developers/]
+6.* proposal stages in Ecmascript (stage-0,etc)
+7. .js vs .jsx 
+8. Config driven UI is layout or data content also ??
+9. Can we have named and default export in same file ?
+10. does react have 2 way binding ?
+11. CORS akshay video [ what does Origin consist of ?]
+12. Does React re-render entire component, even if one part is changing ? Then how is VirtualDOM and Diff algorithm is useful ?
+13. useState holds changed value in memory and sets in on next re-render ?
+    If only a part is being changed, then on re-render diff algorithm compares and figures out the changed part and paint only 
+    that to the DOM ? -- Reconciliation
+14. Why we need state variable and cannot do with normal JS variables ?
+
+
+
+
+
+
+
+
+
+    https://rayobyte.com/blog/data-structures-and-algorithms-in-web-development/#:~:text=Linear%20data%20structures&text=They're%20most%20suitable%20for,of%20the%20same%20type%20together.
+
+
