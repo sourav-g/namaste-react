@@ -36,6 +36,7 @@
   flex-wrap: wrap;
   flex-direction: row;
   padding-top: 20px;
+  align-items: stretch;
 }
 
 .res-card {
@@ -64,6 +65,10 @@
   font-size: 18px;
   padding-bottom: 5px;
   height: 60px;
+}
+
+.res-menu > ul {
+  list-style: none;
 }
 
 .res-cuisines {
@@ -116,4 +121,28 @@
 
 .filters {
   display: flex;
+}
+
+.menu-item {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid black;
+  margin-bottom: 20px;
+}
+
+.menu-text {
+  padding: 5px;
+  flex-basis: 200px;
+  flex-grow: 1;
+}
+
+.menu-image {
+  padding: 5px;
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
 }

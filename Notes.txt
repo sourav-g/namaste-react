@@ -29,7 +29,7 @@
 1. Should we start writing React components top->bottom or ground -> up ?
 2. Passing a prop to a function is like passing an argument to a function. 
 3. Config-driven UI
-4.* When display grid vs flex ? 
+4.* When display grid vs flex ? [flex-grow/shrink etc]
 5.* creating shapes using svg ? advantages of svg [https://deliciousbrains.com/svg-advantages-developers/]
 6.* proposal stages in Ecmascript (stage-0,etc)
 7. .js vs .jsx 
@@ -71,3 +71,16 @@
 5. In CB component, when to write JS inside render() method vs outside ? 
 6. Will componentDidUpdate, get called even if setState do not change any variable ??
 
+7. For loop not allowed inside JSX -> It's because the JSX expects anything inside of it to return an object to be displayed. 
+   A for loop does not return anything, but map does.
+
+  ---------------------------------
+
+  1. Single responsibility principle - Reusable, Maintainable, Testable 
+  2. API contract ?
+  3. Are custom hooks alternative of services in react ?
+  4. ** How core hooks like useEffect works BEHIND THE SCENES ?
+  5. Use Cases of useEffect
+  6. Building a JS bundler [https://cpojer.net/posts/building-a-javascript-bundler#modern-bundling]
+  7. JS module system [ CommonJS(server-side JS) vs AMD(browser JS)]
+  8. Config Driven UI parser in JS [ look at NCP parser also]

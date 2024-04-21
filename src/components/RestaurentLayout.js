@@ -63,7 +63,7 @@ const RestaurentLayout = () => {
         <button
           className="btn search-btn"
           onClick={() => {
-            filteredRestroList = restro_list.filter((res) => {
+            filteredRestroList = restroList.filter((res) => {
               return res.info.name
                 .toLowerCase()
                 .includes(searchText.toLowerCase());
@@ -89,7 +89,10 @@ const RestaurentLayout = () => {
       <div className="res-container">
         {filteredRestroList.map((restro) => {
           return (
-            <Link to={"/restaurent/" + restro.info.id}>
+            <Link
+              to={"/restaurent/" + restro.info.id}
+              style={{ textDecoration: "none" }}
+            >
               <RestaurentCard info={restro.info} />
             </Link>
           );

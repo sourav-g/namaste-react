@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {
-  RESTAURENT_MENU_FETCH_URL,
-  MENU_IMAGE_CDN_URL,
-} from "../utils/constants";
+import { RESTAURENT_MENU_FETCH_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import MenuItem from "./MenuItem";
 
 const RestaurentMenu = () => {
   let [resInfo, setResInfo] = useState(null);
   const params = useParams();
+
+  //* Cannot use async with useEffect. WHY ?
 
   useEffect(() => {
     fetchData();
@@ -29,8 +28,10 @@ const RestaurentMenu = () => {
     resInfo?.cards[2]?.card?.card?.info;
 
   const itemCards =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card.card
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card.card
       .itemCards;
+
+  console.log(itemCards);
 
   return (
     <div className="res-menu">
@@ -45,7 +46,10 @@ const RestaurentMenu = () => {
         {itemCards.map((item) => {
           return (
             <li>
-              {item.card.info.name} - {"Rs. " + item.card.info.price / 100}
+              <MenuItem
+                menuInfo={item.card.info}
+                key={item.card.info.id}
+              ></MenuItem>
             </li>
           );
         })}

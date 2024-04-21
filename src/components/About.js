@@ -1,5 +1,11 @@
+import User from "./User";
+
 const About = () => {
-  return <div>About Us Page</div>;
+  return (
+    <div>
+      <User />
+    </div>
+  );
 };
 
 export default About;
