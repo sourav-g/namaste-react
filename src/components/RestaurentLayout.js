@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { RESTAURENT_FETCH_URL } from "../utils/constants";
 import RestaurentCard from "./RestaurentCard";
 import Shimmer from "./Shimmer";
-import { useEffect, useState } from "react";
 
 const RestaurentLayout = () => {
   //Re-renders (trigger a new reconciliation cycle) everytime state variable changes
@@ -8,40 +10,44 @@ const RestaurentLayout = () => {
 
   //* React Fiber -> New reconciliation process/algorithm to efficiently manipulate the DOM
 
-  let [restro_list, setRestro_list] = useState([]);
-  let [filteredRestro_list, setFilteredRestro_list] = useState([]);
+  let [restroList, setRestroList] = useState([]);
+  let [filteredRestroList, setFilteredRestroList] = useState([]);
   let [searchText, setSearchText] = useState("");
 
   const fetchData = async () => {
-    let data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9783692&lng=77.6408356&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    let data = await fetch(RESTAURENT_FETCH_URL);
     data = await data.json();
     let cards = data.data.cards;
     cards = cards.filter(
       (card) =>
         card.card?.card?.gridElements?.infoWithStyle?.restaurants != undefined
     );
-    setRestro_list(
+    setRestroList(
       cards[0].card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    setFilteredRestro_list(
+    setFilteredRestroList(
       cards[0].card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
   const showTopRatedRestaurents = () => {
-    filteredRestro_list = restro_list.filter((res) => {
+    filteredRestroList = restroList.filter((res) => {
       return res.info.avgRating > 4.5;
     });
-    setFilteredRestro_list(filteredRestro_list);
+    setFilteredRestroList(filteredRestroList);
   };
+
+  /*
+      -> if no dependency array => useEffect is called on every render
+      -> if dependency array is empty [] => useEffect is called on initial render only (only once)   
+      -> if dependency array has values => useEffect is called everytime the dependency gets updated
+  */
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  return filteredRestro_list.length === 0 ? (
+  return filteredRestroList.length === 0 ? (
     <Shimmer />
   ) : (
     <div>
@@ -57,12 +63,12 @@ const RestaurentLayout = () => {
         <button
           className="btn search-btn"
           onClick={() => {
-            filteredRestro_list = restro_list.filter((res) => {
+            filteredRestroList = restro_list.filter((res) => {
               return res.info.name
                 .toLowerCase()
                 .includes(searchText.toLowerCase());
             });
-            setFilteredRestro_list(filteredRestro_list);
+            setFilteredRestroList(filteredRestroList);
           }}
         >
           Search
@@ -74,15 +80,19 @@ const RestaurentLayout = () => {
           className="btn clear-btn"
           style={{ border: "1px solid red" }}
           onClick={() => {
-            setFilteredRestro_list(restro_list);
+            setFilteredRestroList(restroList);
           }}
         >
           Clear Filters
         </button>
       </div>
       <div className="res-container">
-        {filteredRestro_list.map((restro) => {
-          return <RestaurentCard key={restro.info.id} info={restro.info} />;
+        {filteredRestroList.map((restro) => {
+          return (
+            <Link to={"/restaurent/" + restro.info.id}>
+              <RestaurentCard info={restro.info} />
+            </Link>
+          );
         })}
       </div>
     </div>

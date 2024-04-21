@@ -20,6 +20,9 @@
 17. Can we create infinte loop in hTMl ( includes??)
 18. JSX {..} sanitizes before executing, so Cross Site scripting attack is not possible. It uses escapes ???
 19. let and const are not hoisted ???
+20. Can we write func declaration inside a component or always expression ?
+21. What if we use normal func instead of arrow func, in method as well as component func ?
+
 
 -----------------------------------------
 
@@ -30,7 +33,7 @@
 5.* creating shapes using svg ? advantages of svg [https://deliciousbrains.com/svg-advantages-developers/]
 6.* proposal stages in Ecmascript (stage-0,etc)
 7. .js vs .jsx 
-8. Config driven UI is layout or data content also ??
+8. Config driven UI is layout or data content also ?? Design a config-driven spec in JSON
 9. Can we have named and default export in same file ?
 10. does react have 2 way binding ?
 11. CORS akshay video [ what does Origin consist of ?]
@@ -40,14 +43,31 @@
     that to the DOM ? -- Reconciliation
 14. Why we need state variable and cannot do with normal JS variables ?
 
+--------------------------------------------
 
-
-
-
-
-
-
+1. React router v5 and v6
+2. Client side vs Server side routing [https://stackoverflow.com/questions/23975199/when-to-use-client-side-routing-or-server-side-routing]
+3. SPA - one page just components getting interchanged via Clientside routing.
+4. Equivalent of directives,services,pipes,filters in React ?
+5. REST API URL and versioning (/v1 , /v2) OpenAPI ? - Understand NDFS api also
+6. GraphQL - helps with overfetching of data. Fetch only data that is required in UI ? - NDFS use case 
+7. React Router uses DOM History API - Understand it.
+8. React Router vs React Router DOM
+9. React vs React DOM
+10.How to create a JS lib and publish in NPM ?
+11.Can we not give 'errorElement' in children routes and prevent error to display in entire page ?
+12. How to understand Components Tree and Profiler in dev tools.
 
     https://rayobyte.com/blog/data-structures-and-algorithms-in-web-development/#:~:text=Linear%20data%20structures&text=They're%20most%20suitable%20for,of%20the%20same%20type%20together.
 
+
+------------------------------
+
+1. Why do we write super(props) ?
+2. props and state
+3. Multiple state variables can be created one shot in class based components, but 
+   for functional components, one useState hook per varible ?
+4. Reactive programming
+5. In CB component, when to write JS inside render() method vs outside ? 
+6. Will componentDidUpdate, get called even if setState do not change any variable ??
 
