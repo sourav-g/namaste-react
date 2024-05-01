@@ -84,3 +84,5 @@
   6. Building a JS bundler [https://cpojer.net/posts/building-a-javascript-bundler#modern-bundling]
   7. JS module system [ CommonJS(server-side JS) vs AMD(browser JS)]
   8. Config Driven UI parser in JS [ look at NCP parser also]
+  9. Custom hooks starts with 'use' is the convention.
+  

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Header from "./components/Header";
@@ -8,6 +8,15 @@ import Error from "./components/Error";
 import Cart from "./components/Cart";
 import RestaurentLayout from "./components/RestaurentLayout";
 import RestaurentMenu from "./components/RestaurentMenu";
+import Shimmer from "./components/Shimmer";
+
+//Chunking
+//Code splitting
+//Dynamic bundling
+//Lazy loading
+//On Demand loading
+
+const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
   return (
@@ -42,6 +51,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurent/:resId",
         element: <RestaurentMenu />,
+      },
+      {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Grocery />
+          </Suspense>
+        ),
       },
     ],
     errorElement: <Error />,

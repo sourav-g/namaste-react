@@ -90,6 +90,7 @@ const RestaurentLayout = () => {
         {filteredRestroList.map((restro) => {
           return (
             <Link
+              key={restro.info.id}
               to={"/restaurent/" + restro.info.id}
               style={{ textDecoration: "none" }}
             >

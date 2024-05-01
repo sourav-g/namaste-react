@@ -43,13 +43,13 @@ const Header = () => {
             ></i>
             <Link to="/about">About</Link>
           </li>
-          {/* <li>
+          <li>
             <i
               style={{ paddingRight: "10px" }}
-              className="fa-regular fa-user"
+              className="fa-solid fa-shopping-basket"
             ></i>
-            Sign-in
-          </li> */}
+            <Link to="/grocery">Grocery</Link>
+          </li>
           <li>
             <i
               style={{ paddingRight: "10px" }}

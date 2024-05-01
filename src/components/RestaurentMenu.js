@@ -1,27 +1,11 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { RESTAURENT_MENU_FETCH_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import MenuItem from "./MenuItem";
+import useRestaurentMenu from "../utils/useRestaurentMenu";
 
 const RestaurentMenu = () => {
-  let [resInfo, setResInfo] = useState(null);
   const params = useParams();
-
-  //* Cannot use async with useEffect. WHY ?
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    let data = await fetch(
-      RESTAURENT_MENU_FETCH_URL + "restaurantId=" + params.resId
-    );
-    let json = await data.json();
-    setResInfo(json.data);
-  };
-
+  let resInfo = useRestaurentMenu(params.resId);
   if (resInfo === null) return <Shimmer />;
 
   const { name, areaName, costForTwoMessage, cuisines } =
@@ -45,11 +29,8 @@ const RestaurentMenu = () => {
       <ul>
         {itemCards.map((item) => {
           return (
-            <li>
-              <MenuItem
-                menuInfo={item.card.info}
-                key={item.card.info.id}
-              ></MenuItem>
+            <li key={item.card.info.id}>
+              <MenuItem menuInfo={item.card.info}></MenuItem>
             </li>
           );
         })}
