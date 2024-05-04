@@ -85,4 +85,15 @@
   7. JS module system [ CommonJS(server-side JS) vs AMD(browser JS)]
   8. Config Driven UI parser in JS [ look at NCP parser also]
   9. Custom hooks starts with 'use' is the convention.
+
+  --------------------------------------------------------------
+
+  1. SCSS & SASS , styled components [ used in industry]
+  2. Material UI, bootstrap, chakra ui
+  3. Design Systems : Material Design, Fluent Design, Ant Design
+  4. styled Component library - using Web components/ frameworkspecific ui components
+  (https://github.com/web-padawan/awesome-web-components?tab=readme-ov-file#component-libraries)
+  5. rem, px, %, vw-vh
+  6. creating a design system using css/tailwindcss
   
+  ---------------------------------------------------------------

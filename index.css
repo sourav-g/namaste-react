@@ -1,3 +1,7 @@
+/*@tailwind base;
+@tailwind components;
+@tailwind utilities;*/
+
 .appContainer {
   background: whitesmoke;
   padding: 20px;
