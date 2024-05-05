@@ -1,7 +1,8 @@
-/*@tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities;*/
+@tailwind utilities;
 
+/*
 .appContainer {
   background: whitesmoke;
   padding: 20px;
@@ -85,12 +86,12 @@
 
 .res-panel-1 {
   display: flex;
-  width: 100%; /* better way to take up whole row-space ? */
+  width: 100%; 
 }
 
 .res-rating {
   display: flex;
-  width: 100%; /* better way to take up whole row-space ? */
+  width: 100%; 
 }
 
 .res-rating-icon {
@@ -150,3 +151,7 @@
   display: flex;
   justify-content: space-between;
 }
+*/
+
+/* Line 94,89*/
+/* better way to take up whole row-space ? */

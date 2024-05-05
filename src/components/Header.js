@@ -5,8 +5,8 @@ const Header = () => {
   const [btnName, setBtnName] = useState("LogIn");
 
   return (
-    <div className="headerContainer">
-      <nav>
+    <div>
+      <nav className="flex justify-between">
         <Link to="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,33 +31,24 @@ const Header = () => {
             ></path>
           </svg>
         </Link>
-        <ul>
-          <li>
-            <i style={{ paddingRight: "10px" }} className="fa-solid fa-tag"></i>
+        <ul className="flex justify-between">
+          <li className="ml-10">
+            <i className="fa-solid fa-tag"></i>
             <Link to="/contact">Contact</Link>
           </li>
-          <li>
-            <i
-              style={{ paddingRight: "10px" }}
-              className="fa-solid fa-handshake-angle"
-            ></i>
+          <li className="ml-10">
+            <i className="fa-solid fa-handshake-angle"></i>
             <Link to="/about">About</Link>
           </li>
-          <li>
-            <i
-              style={{ paddingRight: "10px" }}
-              className="fa-solid fa-shopping-basket"
-            ></i>
+          <li className="ml-10">
+            <i className="fa-solid fa-shopping-basket"></i>
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li>
-            <i
-              style={{ paddingRight: "10px" }}
-              className="fa-solid fa-cart-shopping"
-            ></i>
+          <li className="ml-10">
+            <i className="fa-solid fa-cart-shopping"></i>
             <Link to="/cart">Cart</Link>
           </li>
-          <li>
+          <li className="ml-10">
             <button
               className="btn"
               onClick={() => {

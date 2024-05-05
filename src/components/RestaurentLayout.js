@@ -51,17 +51,17 @@ const RestaurentLayout = () => {
     <Shimmer />
   ) : (
     <div>
-      <div className="filters">
+      <div className="pt-10">
         <input
           type="text"
-          className="search-text"
+          className="border-solid border-2 border-green-400"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
         ></input>
         <button
-          className="btn search-btn"
+          className="ml-5 px-5 py-1 rounded-lg bg-blue-500"
           onClick={() => {
             filteredRestroList = restroList.filter((res) => {
               return res.info.name
@@ -73,11 +73,14 @@ const RestaurentLayout = () => {
         >
           Search
         </button>
-        <button className="btn top-rated-btn" onClick={showTopRatedRestaurents}>
+        <button
+          className="ml-5 px-5 py-1 rounded-lg bg-blue-500"
+          onClick={showTopRatedRestaurents}
+        >
           Top Rated Restaurants
         </button>
         <button
-          className="btn clear-btn"
+          className="ml-5 px-5 py-1 rounded-lg bg-blue-500"
           style={{ border: "1px solid red" }}
           onClick={() => {
             setFilteredRestroList(restroList);
@@ -86,7 +89,7 @@ const RestaurentLayout = () => {
           Clear Filters
         </button>
       </div>
-      <div className="res-container">
+      <div className="pt-10 flex flex-wrap">
         {filteredRestroList.map((restro) => {
           return (
             <Link

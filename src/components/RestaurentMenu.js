@@ -18,14 +18,14 @@ const RestaurentMenu = () => {
   console.log(itemCards);
 
   return (
-    <div className="res-menu">
-      <h3>{name}</h3>
+    <div className="m-10 p-5">
+      <h3 className="font-semibold">{name}</h3>
       <p>
         {areaName} - {costForTwoMessage}
       </p>
       <p>{cuisines.join(", ")}</p>
 
-      <h2>********* Menu **********</h2>
+      <h2 className="font-bold mt-10">********* Menu **********</h2>
       <ul>
         {itemCards.map((item) => {
           return (

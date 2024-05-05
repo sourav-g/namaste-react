@@ -24,6 +24,14 @@ class User extends React.Component {
     });
   }
 
+  componentDidUpdate() {
+    console.log("Component Did Update");
+  }
+
+  componentWillUnmount() {
+    console.log("Component Will Unmount");
+  }
+
   render() {
     const { name, location, bio, avatar_url } = this.state.userInfo;
     return (

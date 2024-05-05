@@ -97,3 +97,6 @@
   6. creating a design system using css/tailwindcss
   
   ---------------------------------------------------------------
+
+  1. Why higher-order components is required ?
+  
