@@ -34,4 +34,17 @@ const RestaurentCard = (props) => {
   );
 };
 
+export const withDiscountLabel = (RestaurentCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute border-solid border-2 bg-gray-600 rounded-md text-yellow-100">
+          Flat Discount
+        </label>
+        <RestaurentCard {...props} />
+      </div>
+    );
+  };
+};
+
 export default RestaurentCard;
