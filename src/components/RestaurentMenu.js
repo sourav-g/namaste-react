@@ -1,40 +1,44 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
-import MenuItem from "./MenuItem";
+import RestaurentCategory from "./RestaurentCategory";
 import useRestaurentMenu from "../utils/useRestaurentMenu";
 
 const RestaurentMenu = () => {
+  let [showIndex, setShowIndex] = useState(null);
   const params = useParams();
   let resInfo = useRestaurentMenu(params.resId);
+
   if (resInfo === null) return <Shimmer />;
 
   const { name, areaName, costForTwoMessage, cuisines } =
     resInfo?.cards[2]?.card?.card?.info;
+  const cards = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+  const categories = cards.filter((card) =>
+    card?.card?.card["@type"].includes(".ItemCategory")
+  );
 
-  const itemCards =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card.card
-      .itemCards;
-
-  console.log(itemCards);
+  //console.log(categories);
 
   return (
-    <div className="m-10 p-5">
-      <h3 className="font-semibold">{name}</h3>
-      <p>
-        {areaName} - {costForTwoMessage}
+    <div className="text-center">
+      <h1 className="font-bold my-6 text-2xl">{name}</h1>
+      <p className="font-bold text-lgs">
+        {cuisines.join(", ")} - {costForTwoMessage}
       </p>
-      <p>{cuisines.join(", ")}</p>
 
-      <h2 className="font-bold mt-10">********* Menu **********</h2>
-      <ul>
-        {itemCards.map((item) => {
-          return (
-            <li key={item.card.info.id}>
-              <MenuItem menuInfo={item.card.info}></MenuItem>
-            </li>
-          );
-        })}
-      </ul>
+      {/*controlled component since sending showItems to show/hide the RestaurentCategory*/}
+      {/*passing the feature of setting index to its children*/}
+      {categories.map((category, index) => {
+        return (
+          <RestaurentCategory
+            key={category?.card?.card.title}
+            data={category?.card?.card}
+            showItems={index === showIndex}
+            setShowIndex={() => setShowIndex(index)}
+          ></RestaurentCategory>
+        );
+      })}
     </div>
   );
 };

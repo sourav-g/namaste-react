@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { RESTAURENT_FETCH_URL } from "../utils/constants";
-import RestaurentCard from "./RestaurentCard";
+import RestaurentCard, { withDiscountLabel } from "./RestaurentCard";
 import Shimmer from "./Shimmer";
 
 const RestaurentLayout = () => {
@@ -28,6 +28,7 @@ const RestaurentLayout = () => {
     setFilteredRestroList(
       cards[0].card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    //console.log(cards[0].card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
   const showTopRatedRestaurents = () => {
@@ -47,21 +48,23 @@ const RestaurentLayout = () => {
     fetchData();
   }, []);
 
+  const RestaurentCardDiscount = withDiscountLabel(RestaurentCard);
+
   return filteredRestroList.length === 0 ? (
     <Shimmer />
   ) : (
     <div>
-      <div className="pt-10">
+      <div className="flex pt-10">
         <input
           type="text"
-          className="border-solid border-2 border-green-400"
+          className="border-gray border-2"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
         ></input>
         <button
-          className="ml-5 px-5 py-1 rounded-lg bg-blue-500"
+          className="ml-5 px-5 py-1 rounded-lg bg-black text-white"
           onClick={() => {
             filteredRestroList = restroList.filter((res) => {
               return res.info.name
@@ -74,13 +77,13 @@ const RestaurentLayout = () => {
           Search
         </button>
         <button
-          className="ml-5 px-5 py-1 rounded-lg bg-blue-500"
+          className="ml-5 px-5 py-1 rounded-lg bg-black text-white"
           onClick={showTopRatedRestaurents}
         >
           Top Rated Restaurants
         </button>
         <button
-          className="ml-5 px-5 py-1 rounded-lg bg-blue-500"
+          className="ml-5 px-5 py-1 rounded-lg bg-black text-white"
           style={{ border: "1px solid red" }}
           onClick={() => {
             setFilteredRestroList(restroList);
@@ -97,7 +100,11 @@ const RestaurentLayout = () => {
               to={"/restaurent/" + restro.info.id}
               style={{ textDecoration: "none" }}
             >
-              <RestaurentCard info={restro.info} />
+              {restro.info.aggregatedDiscountInfoV3?.discountTag ? (
+                <RestaurentCardDiscount info={restro.info} />
+              ) : (
+                <RestaurentCard info={restro.info} />
+              )}
             </Link>
           );
         })}

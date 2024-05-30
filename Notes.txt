@@ -22,7 +22,9 @@
 19. let and const are not hoisted ???
 20. Can we write func declaration inside a component or always expression ?
 21. What if we use normal func instead of arrow func, in method as well as component func ?
-
+22. tree shaking in react
+23. Look at all build/bundling concepts in React.
+24. Why react expects a root <div>,<> always
 
 -----------------------------------------
 
@@ -99,4 +101,84 @@
   ---------------------------------------------------------------
 
   1. Why higher-order components is required ?
+  2. Controlled and not controlled component
+  3. Lifting the state up
+  4. Props Drilling - drilling across the component tree till the leaf [problem]
+  4. a) Use context
+  5. Data flows in one direction -> top to bottom in component tree
+  6. How to share data between sibling components ?
+
+
+  ---------------------------------------------------------------
+ 
+  Redux : 
+
+  1. One library gaining popularity -> Zustaand
+  2. Does redux use pub-sub pattern ?
+  3. Understand vanilla redux. How RTK has improved usage ?
+  4. Think through real life analogies for redux
+  5. How redux was used in large scale apps before Redux Toolkit (which came in 2019) ?
+  6. How is redux store different from a normal service (like in Angular) ?  ***  
+     [https://stackoverflow.com/questions/51274343/angular-6-why-use-ngrx-store-rather-than-service-injection] (THIS w.r.t Angular)
+     [https://gist.github.com/btroncone/a6e4347326749f938510]
+  7. Does using redux improves app performance or developer productivity or both ?
+  8. Actions and Reducers in Redux. Why is it named REDUCER ?
+  9. Provider concept in software
+  10. What are hooks in react, and what is its use-cases ?
+  11. Difference between these 3:
+        onClick={handleAddItem}
+        onClick={(item)=>handleAddItem(item)}    //callback fn
+        onClick={handleAddItem(item)}  
+  12. Always subscribe to specific portion of the store [ performant ]
+  13. In older redux -> DON'T mutate the state, take a copy and modify
+      In new RTK     -> HAVE TO mutate the state
+      WHY and how this change ?
+
+  14. Behind the scenes, Redux still is creating a new state copy and making things work.
+      (using immerjs under the hood). But that burden is removed from the developers.
+      We dont have to worry about writing reducer as a PURE fn, anymore.        
   
+  15. * How to create an immutable deep clone of a multilevel JS object ?
+        since this was required earlier in a reducer.
+
+  16. redux devtools
+  17. Async operations inside redux : (like API call)
+        Old way -> Middleware & thunks
+        New way -> RTK query
+  18. React with Typescript. [https://www.appsdevpro.com/blog/react-with-typescript-vs-javascript/]
+  19. useReducer hook vs using Redux
+  20. React with or without SSR
+
+
+-----------------------------------------------------------
+
+  TEST :
+
+  1. TDD
+  2. Unit Testing              - test a single unit of the app  
+     Integration Testing       - test specific flow, a particular feature - 2 or more units interact  
+     End to End (e2e) testing  - test all flows - needs specific tools like Selenium
+
+  3. React Testing library -> uses JEST behind the scenes
+  4. JEST - standard for testing JS now
+  5. __xx__ = dunder
+  6. Virtual DOM = React fiber node = JSX element = React Element = VD Object
+  7. Basic of Test Case in react :
+        - render something
+        - query something
+        - assert something
+  8. TDD / DDD
+  9. Able to import MOCK Json data, even though NO explicit export statement in .json file ?sourav
+  10. Using JEST with angular ?     
+  11. Different JS testing frameworks [https://dev.to/heroku/comparing-the-top-3-javascript-testing-frameworks-2cco]
+  12. *** https://dev.to/srmagura/bad-habits-of-mid-level-react-developers-b41
+  13. 
+
+
+
+----------------------------------------------------------------
+
+1. Reactive programming, Observables, RxJS [https://medium.com/@davidjtomczyk/introduction-to-observable-85a5122bf260]
+2. https://reactivex.io/
+3. server-side rendering (SSR) and client-side rendering (CSR) techniques.
+4. Hydration in Angular/React  - ngIndia

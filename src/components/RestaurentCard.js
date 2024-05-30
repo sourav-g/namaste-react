@@ -1,6 +1,7 @@
 import { CDN_URL } from "../utils/constants";
 
 const RestaurentCard = (props) => {
+  //console.log(props.info);
   const {
     id,
     name,
@@ -14,22 +15,18 @@ const RestaurentCard = (props) => {
   } = props.info;
 
   return (
-    <div className="m-5 p-2 w-[200px] h-[500px] border-solid border-2 rounded-lg">
-      <img className="res-logo" src={`${CDN_URL + cloudinaryImageId}`} />
-      <div className="mt-5">
-        <div className="font-semibold">{name}</div>
-        <div className="flex mt-5">
-          <div className="res-rating-icon">
-            <i className="fa-solid fa-star"></i>
-          </div>
-          <div className="flex ml-5">
-            <div className="res-rating-value">{avgRating}</div>
-            <div className="ml-10">{sla.slaString}</div>
-          </div>
-        </div>
-        <div className="mt-5">{cuisines.join(", ")}</div>
-        <div className="mt-5">{locality}</div>
-      </div>
+    <div className="m-4 p-4 w-[250px] h-[500px] rounded-lg bg-gray-100 hover:bg-gray-200">
+      {/*good use-case for learning flexbox & grid*/}
+
+      <img
+        className="rounded-lg"
+        alt="res-logo"
+        src={CDN_URL + cloudinaryImageId}
+      />
+      <h3 className="font-bold py-4 text-lg">{name}</h3>
+      <h4>{cuisines.join(", ")}</h4>
+      <h4>{avgRating} stars</h4>
+      <h4>{costForTwo}</h4>
     </div>
   );
 };
@@ -38,7 +35,7 @@ export const withDiscountLabel = (RestaurentCard) => {
   return (props) => {
     return (
       <div>
-        <label className="absolute border-solid border-2 bg-gray-600 rounded-md text-yellow-100">
+        <label className="absolute px-2 border-solid border-2 bg-black rounded-md text-white">
           Flat Discount
         </label>
         <RestaurentCard {...props} />

@@ -18,9 +18,9 @@ import Shimmer from "./components/Shimmer";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
-const AppLayout = () => {
+const App = () => {
   return (
-    <div className="m-5">
+    <div className="mx-4 my-2">
       <Header />
       <Outlet />
     </div>
@@ -30,7 +30,7 @@ const AppLayout = () => {
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <AppLayout />,
+    element: <App />,
     children: [
       {
         path: "/",
