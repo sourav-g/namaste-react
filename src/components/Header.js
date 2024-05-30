@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("LogIn");
 
+  const data = useContext(UserContext);
+  const onlineStatus = useOnlineStatus();
+
   return (
     <div>
-      <nav className="flex justify-between">
-        <Link to="/">
+      <nav className="flex justify-evenly shadow-lg border-solid">
+        <Link className="w-6/12" to="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 124 124"
@@ -31,24 +36,27 @@ const Header = () => {
             ></path>
           </svg>
         </Link>
-        <ul className="flex justify-between">
-          <li className="ml-10">
+        <ul className="w-6/12 m-auto flex justify-evenly">
+          <li className="">
+            <span>Online Status : {onlineStatus ? "🟢" : "❌"}</span>
+          </li>
+          <li className="">
             <i className="fa-solid fa-tag"></i>
             <Link to="/contact">Contact</Link>
           </li>
-          <li className="ml-10">
+          <li className="">
             <i className="fa-solid fa-handshake-angle"></i>
             <Link to="/about">About</Link>
           </li>
-          <li className="ml-10">
+          <li className="">
             <i className="fa-solid fa-shopping-basket"></i>
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="ml-10">
+          <li className="">
             <i className="fa-solid fa-cart-shopping"></i>
             <Link to="/cart">Cart</Link>
           </li>
-          <li className="ml-10">
+          <li className="">
             <button
               className="btn"
               onClick={() => {
@@ -58,6 +66,7 @@ const Header = () => {
               {btnName}
             </button>
           </li>
+          <li className="">{data.loggedInUser}</li>
         </ul>
       </nav>
     </div>
