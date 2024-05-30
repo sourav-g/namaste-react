@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Header from "./components/Header";
@@ -9,6 +9,7 @@ import Cart from "./components/Cart";
 import RestaurentLayout from "./components/RestaurentLayout";
 import RestaurentMenu from "./components/RestaurentMenu";
 import Shimmer from "./components/Shimmer";
+import UserContext from "./utils/UserContext";
 
 //Chunking
 //Code splitting
@@ -19,11 +20,24 @@ import Shimmer from "./components/Shimmer";
 const Grocery = lazy(() => import("./components/Grocery"));
 
 const App = () => {
+  let [userInfo, setUserInfo] = useState({});
+
+  useEffect(() => {
+    // Make API call and get user data
+    setUserInfo({
+      loggedInUser: "Sourav",
+      loggedInUserRole: "Business User",
+      loggedInUserBranch: "Siliguri",
+    });
+  }, []);
+
   return (
-    <div className="mx-4 my-2">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ userInfo, setUserInfo }}>
+      <div className="mx-4 my-2">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 

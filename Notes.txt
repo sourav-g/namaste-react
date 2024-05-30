@@ -59,6 +59,7 @@
 10.How to create a JS lib and publish in NPM ?
 11.Can we not give 'errorElement' in children routes and prevent error to display in entire page ?
 12. How to understand Components Tree and Profiler in dev tools.
+13. Explore different form of routers - BrowserRouter, HashRouter, etc
 
     https://rayobyte.com/blog/data-structures-and-algorithms-in-web-development/#:~:text=Linear%20data%20structures&text=They're%20most%20suitable%20for,of%20the%20same%20type%20together.
 
@@ -107,6 +108,7 @@
   4. a) Use context
   5. Data flows in one direction -> top to bottom in component tree
   6. How to share data between sibling components ?
+  7. Re-render optimisation : https://medium.com/@ztolley/react-re-render-optimisation-d16ba64754a5
 
 
   ---------------------------------------------------------------

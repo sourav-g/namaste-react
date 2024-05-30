@@ -15,7 +15,7 @@ const RestaurentCard = (props) => {
   } = props.info;
 
   return (
-    <div className="m-4 p-4 w-[250px] h-[500px] rounded-lg bg-gray-100 hover:bg-gray-200">
+    <div className="m-4 p-4 w-[250px]  rounded-lg bg-gray-100 hover:bg-gray-200">
       {/*good use-case for learning flexbox & grid*/}
 
       <img

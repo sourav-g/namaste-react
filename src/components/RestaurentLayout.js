@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { RESTAURENT_FETCH_URL } from "../utils/constants";
 import RestaurentCard, { withDiscountLabel } from "./RestaurentCard";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const RestaurentLayout = () => {
   //Re-renders (trigger a new reconciliation cycle) everytime state variable changes
@@ -48,6 +49,16 @@ const RestaurentLayout = () => {
     fetchData();
   }, []);
 
+  const onlineStatus = useOnlineStatus();
+
+  if (!onlineStatus) {
+    return (
+      <h1 className="text-2xl font-bold mt-20 ml-30">
+        Looks like your internet connection is down ! ☹️
+      </h1>
+    );
+  }
+
   const RestaurentCardDiscount = withDiscountLabel(RestaurentCard);
 
   return filteredRestroList.length === 0 ? (
@@ -57,7 +68,7 @@ const RestaurentLayout = () => {
       <div className="flex pt-10">
         <input
           type="text"
-          className="border-gray border-2"
+          className="border-blue border-2 rounded-lg shadow-lg px-2"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);

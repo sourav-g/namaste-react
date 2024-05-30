@@ -4,15 +4,20 @@ const useOnlineStatus = () => {
   let [status, setStatus] = useState(true);
 
   useEffect(() => {
-    window.addEventListener("online", () => {
-      console.log("online");
+    function handleOnline() {
       setStatus(true);
-    });
-
-    window.addEventListener("offline", () => {
-      console.log("offline");
+    }
+    function handleOffline() {
       setStatus(false);
-    });
+    }
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    //runs when we move out of the component ?
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
   }, []);
 
   return status;

@@ -4,9 +4,10 @@ import UserContext from "../utils/UserContext";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
-  const [btnName, setBtnName] = useState("LogIn");
+  const [btnName, setBtnName] = useState("LogOut");
 
-  const data = useContext(UserContext);
+  const { userInfo } = useContext(UserContext); //consuming context
+
   const onlineStatus = useOnlineStatus();
 
   return (
@@ -66,7 +67,7 @@ const Header = () => {
               {btnName}
             </button>
           </li>
-          <li className="">{data.loggedInUser}</li>
+          <li className="font-bold">{userInfo.loggedInUser}</li>
         </ul>
       </nav>
     </div>
