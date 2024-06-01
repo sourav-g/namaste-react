@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("LogOut");
@@ -9,6 +10,13 @@ const Header = () => {
   const { userInfo } = useContext(UserContext); //consuming context
 
   const onlineStatus = useOnlineStatus();
+
+  //Subscribing to the store using a selector
+  //! Subscribe to only required portion of the store, and NOT the whole Store,
+  //! since any changes in any part of the entire store, will trigger a re-render of
+  //! this component?
+
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div>
@@ -55,7 +63,12 @@ const Header = () => {
           </li>
           <li className="">
             <i className="fa-solid fa-cart-shopping"></i>
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">
+              Cart
+              <span className="text-red-900 font-bold">
+                ( {cartItems.length} items )
+              </span>
+            </Link>
           </li>
           <li className="">
             <button

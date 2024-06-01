@@ -46,3 +46,12 @@
 - Client Side Routing
 - Server Side Routing
   (https://stackoverflow.com/questions/23975199/when-to-use-client-side-routing-or-server-side-routing)
+
+# Redux Toolkit
+
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- Connect our store to our app
+- Slice (cartSlice)
+- dispatch(action)
+- selector
