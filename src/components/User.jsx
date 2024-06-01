@@ -53,6 +53,7 @@ class User extends React.Component {
                 className="border-blue border-2 rounded-lg shadow-lg px-2"
                 onChange={(e) => {
                   //console.log(e.target.value);
+                  //distribute the old state and update properties
                   setUserInfo({ ...userInfo, loggedInUser: e.target.value });
                 }}
               />
