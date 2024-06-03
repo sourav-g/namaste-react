@@ -160,8 +160,9 @@
   2. Unit Testing              - test a single unit of the app  
      Integration Testing       - test specific flow, a particular feature - 2 or more units interact  
      End to End (e2e) testing  - test all flows - needs specific tools like Selenium
-
-  3. React Testing library -> uses JEST behind the scenes
+`
+  3. React Testing library -> built on top of DOM Testing library 
+                           -> uses JEST behind the scenes
   4. JEST - standard for testing JS now
   5. __xx__ = dunder
   6. Virtual DOM = React fiber node = JSX element = React Element = VD Object
@@ -174,9 +175,10 @@
   10. Using JEST with angular ?     
   11. Different JS testing frameworks [https://dev.to/heroku/comparing-the-top-3-javascript-testing-frameworks-2cco]
   12. *** https://dev.to/srmagura/bad-habits-of-mid-level-react-developers-b41
-  13. 
-
-
+  13. jsdom -> runtime for test cases to run, since no browser during testing, so it mimicks and gives features of browser
+  14. All files inside __tests__ are test files, irrespective of naming
+  15. Header.test.js , Header.spec.js are test files
+  16. What does 100% test coverage mean ?
 
 ----------------------------------------------------------------
 
