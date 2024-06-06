@@ -37,7 +37,7 @@ const cartSlice = createSlice({
 
     //? originalState : {items:['pizza']} -> 1
     clearCart: (state, action) => {
-      console.log(current(state)); //? {items:['pizza']}
+      //console.log(current(state)); //? {items:['pizza']}
 
       //! will NOT work, since not mutating the state, changing reference altogether
       //state = [];
@@ -52,7 +52,7 @@ const cartSlice = createSlice({
   },
 });
 
-console.log("CartSlice :", cartSlice);
+//console.log("CartSlice :", cartSlice);
 
 export const { addItem, removeItem, clearCart } = cartSlice.actions;
 

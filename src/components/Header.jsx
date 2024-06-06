@@ -80,7 +80,7 @@ const Header = () => {
               {btnName}
             </button>
           </li>
-          <li className="font-bold">{userInfo.loggedInUser}</li>
+          <li className="font-bold">{userInfo?.loggedInUser}</li>
         </ul>
       </nav>
     </div>

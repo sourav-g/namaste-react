@@ -105,6 +105,7 @@ const RestaurentLayout = () => {
       </div>
       <div className="pt-10 flex flex-wrap">
         {filteredRestroList.map((restro) => {
+          console.log(restro.info);
           return (
             <Link
               key={restro.info.id}

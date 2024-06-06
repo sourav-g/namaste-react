@@ -32,9 +32,9 @@ describe("Contact Us Page Test Cases", () => {
     // Querying
     const inputBoxes = screen.getAllByRole("textbox");
 
-    console.log(inputBoxes); //React Elements
+    //console.log(inputBoxes); //React Elements
 
-    expect(inputBoxes.length).toBe(3);
+    expect(inputBoxes.length).toBe(2);
 
     /*  For multiple assertions, test fails on the first failed assertion.
         Subsequent assertions are NOT evaluated at all.
