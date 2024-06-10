@@ -16,9 +16,10 @@ const RestaurentLayout = () => {
   let [searchText, setSearchText] = useState("");
 
   const fetchData = async () => {
-    let data = await fetch(RESTAURENT_FETCH_URL);
-    data = await data.json();
-    let cards = data.data.cards;
+    const data = await fetch(RESTAURENT_FETCH_URL);
+    const json = await data.json();
+    let cards = json?.data?.cards;
+    console.log("Cards", cards);
     cards = cards.filter(
       (card) =>
         card.card?.card?.gridElements?.infoWithStyle?.restaurants != undefined
